@@ -173,21 +173,34 @@
     </div>
   </template>
   <script>
-    const fireballSize = 22; //изменение размера фаербола
-   // +++ условие движения фаербола 
-   const wizardSpeed = 3; //скорость мага
-   const wizardWidth = 70; //ширина мага
-   const WizardHeight = wizardWidth * 1.337; //высота мага
-   const getWizardX = function getWizardX(levelHeight) { //начальное положение мага по горизонтали 
-    WizardX = levelHeight / 2;
-    return WizardX;
-   }
-   const getWizardY = function getWizardY(levelWidth) { //начальное положение мага по вертикали 
-    WizardX = levelWidth / 3;
-    return WizardY;
-   }
+    const fireballSize = 22;                                                  //изменение размера фаербола
+    const fireballSpeed = function getFireballSpeed(movingRight, movingLeft){
+      if (movingRight == true){                                               //условие скорости фаербола.
+        fireballSpeed = 5;                                                    //фаербол летит по ветру
+      } else if (movingLeft == true){
+        fireballSpeed = 2;                                                    //фаербол летит против ветра
+      }
+
+    }
+    const wizardSpeed = 3;                                                    //скорость мага
+    const wizardWidth = 70;                                                   //ширина мага
+    const wizardHeight = function getWizardHeight(wizardWidth){               //высота мага
+      wizardWidth * 1.337;
+      return wizardHeight;
+    }
+    const WizardX = function getWizardX(levelHeight) {                        //начальное положение мага по горизонтали
+     WizardX = levelHeight / 2 - (wizardWidth / 2);
+     return WizardX;
+    }
+    const WizardY = function getWizardY(levelWidth) {                         //начальное положение мага по вертикали
+     WizardX = levelWidth / 3 - (wizardHeight / 2);
+     return WizardY;
+    }
 
     /*
+
+    ВЫПОЛНЕНО
+
     размер фаербола был равен 22;
     если фаербол летит по ветру (вправо), скорость его равна 5, иначе он летит против ветра (влево) со скоростью 2;
     маг двигался со скоростью 3;
