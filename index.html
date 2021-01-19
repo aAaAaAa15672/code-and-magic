@@ -174,13 +174,11 @@
   </template>
   <script>
     const fireballSize = 22;                                                  //изменение размера фаербола
-    const getFireballSpeed = function(movingRight, movingLeft) {
-      if (movingRight === true){                                               //условие скорости фаербола.
-        fireballSpeed = 5;
-        return fireballSpeed;                                              //фаербол летит по ветру
-      } else if (movingLeft === true){
-        fireballSpeed = 2;
-        return fireballSpeed;                                                //фаербол летит против ветра
+    const getFireballSpeed = function(isLeft) {
+      if (isLeft === true){                                               //условие скорости фаербола.
+        return 2;                                              //фаербол летит по ветру
+      } else {
+        return 5;                                                //фаербол летит против ветра
       }
     };
     const wizardSpeed = 3;                                                    //скорость мага
@@ -189,14 +187,15 @@
       const wizardHeight = wizardWidth * 1.337;
       return wizardHeight;
     };
-    const levelHeight = 300;
-    const levelWidth = 700;
+    // const levelHeight = 300;
+    // const levelWidth = 700;
 
-    const getWizardX = function () {                        //начальное положение мага по горизонтали
-     return levelHeight / 2 - (wizardWidth / 2);
+    const getWizardX = function (width) {                        //начальное положение мага по горизонтали
+     return width / 2 -  wizardWidth / 2;
     };
-    const getWizardY = function () {                         //начальное положение мага по вертикали
-      return levelWidth / 3 - (getWizardHeight() / 2);
+    const getWizardY = function (height) {
+      console.log(height);                       //начальное положение мага по вертикали
+      return height / 3 - (getWizardHeight() / 2);
     };
 
     const height = getWizardHeight();
