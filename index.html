@@ -173,48 +173,32 @@
     </div>
   </template>
   <script>
-    const fireballSize = 22;                                                  //изменение размера фаербола
+    const fireballSize = 22;                        //изменение размера фаербола
     const getFireballSpeed = function(isLeft) {
-      if (isLeft === true){                                               //условие скорости фаербола.
-        return 2;                                              //фаербол летит по ветру
+      if (isLeft === true){                         //условие скорости фаербола.
+        return 2;                                   //фаербол летит по ветру
       } else {
-        return 5;                                                //фаербол летит против ветра
+        return 5;                                   //фаербол летит против ветра
       }
     };
-    const wizardSpeed = 3;                                                    //скорость мага
-    const wizardWidth = 70;                                                   //ширина мага
-    const getWizardHeight = function(){        //высота мага
+    const wizardSpeed = 3;                          //скорость мага
+    const wizardWidth = 70;                         //ширина мага
+    const getWizardHeight = function(){             //высота мага
       const wizardHeight = wizardWidth * 1.337;
       return wizardHeight;
     };
-    // const levelHeight = 300;
-    // const levelWidth = 700;
-
-    const getWizardX = function (width) {                        //начальное положение мага по горизонтали
+    const getWizardX = function (width) {           //начальное положение мага по горизонтали
      return width / 2 -  wizardWidth / 2;
     };
-    const getWizardY = function (height) {
-      console.log(height);                       //начальное положение мага по вертикали
+    const getWizardY = function (height) {          //начальное положение мага по вертикали
+      console.log(height);
       return height / 3 - (getWizardHeight() / 2);
     };
 
     const height = getWizardHeight();
     console.log(height);
-
-    /*
-
-    ВЫПОЛНЕНО
-
-    размер фаербола был равен 22;
-    если фаербол летит по ветру (вправо), скорость его равна 5, иначе он летит против ветра (влево) со скоростью 2;
-    маг двигался со скоростью 3;
-    ширина мага была равна 70, а высота мага считалась по формуле 1.337 * ширину мага;
-    начальное положение мага по горизонтали: центр фигурки находится ровно посередине игрового поля;
-    начальное положение мага по вертикали: фигурка находится на высоте две трети игрового поля от земли.
-    */
-
-   /*getFireballSpeed, getWizardX, getWizardY, wizardSpeed*/
   </script>
+  <script src="js/stat.js"></script>
   <script src="js/game.js"></script>
 </body>
 
