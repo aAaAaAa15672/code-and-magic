@@ -187,16 +187,10 @@
       const wizardHeight = wizardWidth * 1.337;
       return wizardHeight;
     };
-    const getWizardX = function (width) {           //начальное положение мага по горизонтали
-     return width / 2 -  wizardWidth / 2;
-    };
-    const getWizardY = function (height) {          //начальное положение мага по вертикали
-      console.log(height);
-      return height / 3 - (getWizardHeight() / 2);
-    };
-
     const height = getWizardHeight();
-    console.log(height);
+    const getWizardX = width => width / 2 -  wizardWidth / 2;//начальное положение мага по горизонтали
+    const getWizardY = height => height / 3 - (getWizardHeight() / 2);//начальное положение мага по вертикали
+
   </script>
   <script src="js/stat.js"></script>
   <script src="js/game.js"></script>
