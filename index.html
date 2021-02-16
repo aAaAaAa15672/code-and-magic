@@ -172,22 +172,29 @@
       <p class="setup-similar-label">Петр Петров</p>
     </div>
   </template>
+
+  <canvas id="canvas"> </canvas>
   <script>
+
     const fireballSize = 22;                        //изменение размера фаербола
-    const getFireballSpeed = function(isLeft) {
+
+    const getFireballSpeed = (isLeft) => {
       if (isLeft === true){                         //условие скорости фаербола.
         return 2;                                   //фаербол летит по ветру
       } else {
         return 5;                                   //фаербол летит против ветра
       }
     };
+
     const wizardSpeed = 3;                          //скорость мага
     const wizardWidth = 70;                         //ширина мага
-    const getWizardHeight = function(){             //высота мага
+    const getWizardHeight = () => {             //высота мага
       const wizardHeight = wizardWidth * 1.337;
       return wizardHeight;
     };
+
     const height = getWizardHeight();
+
     const getWizardX = width => width / 2 -  wizardWidth / 2;//начальное положение мага по горизонтали
     const getWizardY = height => height / 3 - (getWizardHeight() / 2);//начальное положение мага по вертикали
 
