@@ -1,14 +1,4 @@
-const getMaxNumber = function (times){
-  let max = times[0];
-  for (let a = 0; a < times.length; a++) {
-    if (times[a] > max ) {
-      max = times[a];
-    }
-  }
-  return max;
-}
-//const getRandomNumber (){}
-window.renderStatistics = function(ctx, names, times) {
+const fillCloud = function (ctx) { //отрисовка облака
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect (110, 20, 420, 270);
   //заливка тени под облаком
@@ -23,7 +13,24 @@ window.renderStatistics = function(ctx, names, times) {
   ctx.fillText("Ура вы победили!",120,41);
   ctx.fillText("Список результатов:", 120, 60);
   //текст на облаке
-
+}
+const getMaxNumber = function (times){ //получение максимального числа
+  let max = times[0]; 
+  for (let a = 0; a < times.length; a++) {
+    if (times[a] > max ) {
+      max = times[a];
+    }
+  }
+  //создается переменная max, равная times[0]. max сравнивается со всеми числами массива. Если какое-либо число больше max, то оно записывается в max. 
+  return max = Math.round;
+}
+const getRandomNumber = function (max){ //получение рандомного числа от 0 до max
+    return Math.floor(Math.random() * Math.floor(max));
+}
+const getRoundedNumber = function (times){ //получение округленного числа
+  times = Math.round;
+}
+const fillColumns = function (ctx,times){ //отрисовка колонок
   let column_x = 140;
   //column_x - начальная координата по горизонтали
   for (a = 0; a<4; a++){
@@ -31,13 +38,18 @@ window.renderStatistics = function(ctx, names, times) {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
       //первая колонка окрашивается в красный
     } else {
-      ctx.fillStyle = 'hsl(240, 100%, 50%)';
-      //все остальные колонки окрашиваются в синий разной градации
-      //!!!!!!!!!!!!!!!!!!!сделать ctx.fillStyle = 'hsl(240, 100%, getRandomNumber)';
+      let random = String(getRandomNumber(100));
+      ctx.fillStyle = 'hsl(240, 180%, ' + random + '%)';
+      //все остальные колонки окрашиваются в синий рандомной градации
     }
     ctx.fillRect(column_x, 90, 40, 150);
     ctx.fillStyle = 'black';
-    ctx.fillText(getMaxNumber(times),140,260);
+    /*asdf = getRoundedNumber(times);*/
+    ctx.fillText(getMaxNumber(times) ,140,260);
     column_x = column_x + 90;
   }
+}
+window.renderStatistics = function(ctx, names, times) {
+  fillCloud(ctx);
+  fillColumns(ctx, times);
 };
