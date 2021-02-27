@@ -18,8 +18,10 @@ const getMaxNumber = function (times){ //получение максимальн
   let max = times[0]; 
   for (let a = 0; a < times.length; a++) {
     if (times[a] > max ) {
+      console.log (times[a] + ' - число ');
       max = times[a];
-    }
+    } 
+    console.log(max + ' - округленное число');
   }
   //создается переменная max, равная times[0]. max сравнивается со всеми числами массива. Если какое-либо число больше max, то оно записывается в max. 
   return max = Math.round;
@@ -28,8 +30,13 @@ const getRandomNumber = function (max){ //получение рандомног�
     return Math.floor(Math.random() * Math.floor(max));
 }
 const getRoundedNumber = function (times){ //получение округленного числа
-  times = Math.round;
+  for (let a = 0; a < times.length; a++){
+    times[a] = Math.floor(times[a])
+  }
 }
+/*const getHeightOfColumns = function (times){
+  for getMaxNumber(times) 
+}*/
 const fillColumns = function (ctx,times){ //отрисовка колонок
   let column_x = 140;
   //column_x - начальная координата по горизонтали
@@ -42,7 +49,7 @@ const fillColumns = function (ctx,times){ //отрисовка колонок
       ctx.fillStyle = 'hsl(240, 180%, ' + random + '%)';
       //все остальные колонки окрашиваются в синий рандомной градации
     }
-    ctx.fillRect(column_x, 90, 40, 150);
+    ctx.fillRect(column_x, 240, 40, -50);
     ctx.fillStyle = 'black';
     /*asdf = getRoundedNumber(times);*/
     ctx.fillText(getMaxNumber(times) ,140,260);
