@@ -1,25 +1,28 @@
-const BAR_HEIGHT = 150;
-const BAR_GAP = 50;
-const BAR_WIDTH = 40;
+const BAR_HEIGHT = 150;   // высота колонки
+const BAR_GAP = 50;       // расстояние между колонками
+const BAR_WIDTH = 40;     // ширина колонки
 
-const CLOUD_X = 100;
-const CLOUD_Y = 10;
-const CLOUD_HEIGHT = 270;
+const CLOUD_X = 100;      // начальная корд. облака по горизонтали
+const CLOUD_Y = 10;       // начальная корд. облака по вертикали
+const CLOUD_HEIGHT = 270; // высота облака
+const CLOUD_WIDTH = 420;  // ширина облака
+
+const TEXT_HEIGHT = 16;   // размер текста
 
 const fillCloud = function (ctx) { //отрисовка облака
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-  ctx.fillRect (110, 20, 420, 270);
+  ctx.fillRect (CLOUD_X + 10, CLOUD_Y + 10, CLOUD_WIDTH, CLOUD_HEIGHT);
   //заливка тени под облаком
 
   ctx.fillStyle = 'white';
-  ctx.fillRect (100, 10, 420, 270);
+  ctx.fillRect (CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
   //само облако с результатами
 
   ctx.font="16px PT Mono";
   ctx.fillStyle = 'black';
   //стиль текста на облаке
-  ctx.fillText("Ура вы победили!",120,41);
-  ctx.fillText("Список результатов:", 120, 60);
+  ctx.fillText("Ура вы победили!",CLOUD_X + 20, TEXT_HEIGHT + 25);
+  ctx.fillText("Список результатов:", CLOUD_X + 20, TEXT_HEIGHT + 45);
   //текст на облаке
 }
 const getMaxNumber = function (times){ //получение максимального числа
